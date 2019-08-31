@@ -83,6 +83,8 @@ public class AddContactActivity extends AppCompatActivity  implements IAddContac
     @Override
     public void goToMainActivity() {
 
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
         this.finish();
     }
 

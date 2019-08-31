@@ -157,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements IMain.View {
 
         Intent intent = new Intent(this, AddContactActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
