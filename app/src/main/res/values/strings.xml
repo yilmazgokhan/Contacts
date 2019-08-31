@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">LOG IN</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="type">Type</string>
+
+    <string name="add_contact">Add Contact</string>
+    <string name="error_verify">Verify Error. Going Login Screen.</string>
+    <string name="git_hub">Source Code on GitHub</string>
+    <string name="git_hubLink">https://github.com/yilmazgokhan/Android-MVP-RecyclerView-Retrofit.git</string>
+    <string name="privacyPolicy">Privacy Policy</string>
+    <string name="privacyPolicyLink">https://docs.google.com/document/d/1UrUYQjRczGOcljbMMDdXimpTllDEsIMtwzesgSs9Ifg/edit?usp=sharing</string>
+    <string name="done">Done</string>
+    <string name="delete">Delete</string>
+    <string name="contact_created">Contact Created</string>
+    <string name="contact_deleted">Contact Deleted.</string>
+    <string name="contact_updated">Contact Updated.</string>
+    <string name="contacts">Contacts</string>
+    <string name="add_new_contact">Add New Contact</string>
+    <string name="edit_contact">Edit Contact</string>
+    <string name="press_again">Press again for exit.</string>
+    <string name="brackets"> | </string>
+</resources>

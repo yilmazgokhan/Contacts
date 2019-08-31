@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.RegisterActivity"
+    android:padding="20dp">
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/registerSpinKit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        style="@style/SpinKitView.Large.Circle"
+        app:SpinKit_Color="@color/colorPrimaryDark"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logox160"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/registerEditTxtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/registerTxtNameError"
+        android:layout_marginBottom="6dp"
+        android:inputType="text"
+        android:maxLines="1"
+        android:hint="@string/name"/>
+
+    <TextView
+        android:id="@+id/registerTxtNameError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/registerEditTxtEmail"
+        android:layout_marginBottom="6dp"
+        android:drawableStart="@drawable/ic_new_releases_red_24dp"
+        android:drawablePadding="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+
+    <EditText
+        android:id="@+id/registerEditTxtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/registerTxtEmailError"
+        android:layout_marginBottom="6dp"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:hint="@string/email"/>
+
+    <TextView
+        android:id="@+id/registerTxtEmailError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/registerEditTxtPassword"
+        android:layout_marginBottom="6dp"
+        android:drawableStart="@drawable/ic_new_releases_red_24dp"
+        android:drawablePadding="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/registerEditTxtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/registerTxtPasswordError"
+        android:layout_marginBottom="6dp"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:hint="@string/password"/>
+
+    <TextView
+        android:id="@+id/registerTxtPasswordError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/registerBtnRegister"
+        android:drawableStart="@drawable/ic_new_releases_red_24dp"
+        android:drawablePadding="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/registerBtnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:theme="@style/PrimaryButton"
+        android:text="@string/register"/>
+
+</RelativeLayout>

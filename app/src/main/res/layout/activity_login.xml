@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.LoginActivity"
+    android:padding="20dp">
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/loginSpinKit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        style="@style/SpinKitView.Large.Circle"
+        app:SpinKit_Color="@color/colorPrimaryDark"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logox160"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/loginEditTxtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginTxtEmailError"
+        android:layout_marginBottom="6dp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/loginTxtEmailError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginEditTxtPassword"
+        android:layout_marginBottom="6dp"
+        android:drawableStart="@drawable/ic_new_releases_red_24dp"
+        android:drawablePadding="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/loginEditTxtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginTxtPasswordError"
+        android:layout_marginBottom="6dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/loginTxtPasswordError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginBtnLogin"
+        android:layout_marginBottom="6dp"
+        android:drawableStart="@drawable/ic_new_releases_red_24dp"
+        android:drawablePadding="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/loginBtnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginBtnRegister"
+        android:theme="@style/PrimaryButton"
+        android:text="@string/log_in"/>
+
+    <Button
+        android:id="@+id/loginBtnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginTxtGitHub"
+        android:layout_marginBottom="20dp"
+        android:theme="@style/PrimaryButton"
+        android:text="@string/register"/>
+
+    <TextView
+        android:id="@+id/loginTxtGitHub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loginTxtPrivacyPolicy"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:text="@string/git_hub"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <TextView
+        android:id="@+id/loginTxtPrivacyPolicy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:text="@string/privacyPolicy"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"/>
+
+</RelativeLayout>

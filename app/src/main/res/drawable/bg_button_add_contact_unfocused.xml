@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <stroke
+        android:width="2dp"
+        android:color="@color/colorButtonPressed" />
+    <solid
+        android:color="@color/colorButtonUnfocused"/>
+    <corners
+        android:radius="90dp" />
+</shape>
