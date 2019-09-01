@@ -30,6 +30,26 @@ public class Contact {
     @Expose
     private Integer v;
 
+    /*for create contact / AddContactPresenter*/
+    public Contact(String type, String name, String email, String phone) {
+        this.type = type;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public Contact() {
+    }
+
+    /*for create contact / AddContactPresenter*/
+    public Contact(String name, String phone, String email, String type, String id) {
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.type = type;
+        this.id = id;
+    }
+
     public String getType() {
         return type;
     }

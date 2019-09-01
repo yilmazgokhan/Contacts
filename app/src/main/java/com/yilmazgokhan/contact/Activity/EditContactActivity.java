@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
-import com.yilmazgokhan.contact.HelperClass.UserEdit;
+import com.yilmazgokhan.contact.HelperClass.Contact;
 import com.yilmazgokhan.contact.Interface.IEditContact;
 import com.yilmazgokhan.contact.Presenter.EditContactPresenter;
 import com.yilmazgokhan.contact.R;
@@ -25,7 +25,7 @@ public class EditContactActivity extends AppCompatActivity implements IEditConta
     private EditContactPresenter editContactPresenter;
     private Toolbar editContactToolbar;
     private ProgressBar editContactSpinKit;
-    private UserEdit userEdit;
+    private Contact user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,8 @@ public class EditContactActivity extends AppCompatActivity implements IEditConta
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras != null) {
-                /*user = new UserEdit(extras.getString("name"), extras.getString("phone"),
-                        extras.getString("email"), extras.getString("type"), extras.getString("id"));*/
-                userEdit = new UserEdit();
-                userEdit.setId(extras.getString("id"));
+                user = new Contact();
+                user.setId(extras.getString("id"));
             }
         }
 
@@ -83,16 +81,16 @@ public class EditContactActivity extends AppCompatActivity implements IEditConta
 
     @Override
     public String getUserID() {
-        return userEdit.getId();
+        return user.getId();
     }
 
     @Override
-    public void setTexts(UserEdit userEdit) {
+    public void setTexts(Contact user) {
 
-        editContactEditTxtName.setText(userEdit.getName());
-        editContactEditTxtPhone.setText(userEdit.getPhone());
-        editContactEditTxtEmail.setText(userEdit.getEmail());
-        editContactEditTxtType.setText(userEdit.getType());
+        editContactEditTxtName.setText(user.getName());
+        editContactEditTxtPhone.setText(user.getPhone());
+        editContactEditTxtEmail.setText(user.getEmail());
+        editContactEditTxtType.setText(user.getType());
     }
 
     @Override
@@ -119,7 +117,7 @@ public class EditContactActivity extends AppCompatActivity implements IEditConta
                 editContactPresenter.doneButtonClick();
                 break;
             case R.id.itemToolbarMenuEditContactDelete :
-                editContactPresenter.deleteButtonClick(userEdit.getId());
+                editContactPresenter.deleteButtonClick(user.getId());
                 break;
             default:
                 break;
@@ -128,13 +126,13 @@ public class EditContactActivity extends AppCompatActivity implements IEditConta
     }
 
     @Override
-    public UserEdit getChangedUser() {
+    public Contact getChangedUser() {
 
-        userEdit.setEmail(editContactEditTxtEmail.getText().toString().trim());
-        userEdit.setName(editContactEditTxtName.getText().toString().trim());
-        userEdit.setPhone(editContactEditTxtPhone.getText().toString().trim());
-        userEdit.setType(editContactEditTxtType.getText().toString().trim());
-        return userEdit;
+        user.setEmail(editContactEditTxtEmail.getText().toString().trim());
+        user.setName(editContactEditTxtName.getText().toString().trim());
+        user.setPhone(editContactEditTxtPhone.getText().toString().trim());
+        user.setType(editContactEditTxtType.getText().toString().trim());
+        return user;
     }
 
     @Override

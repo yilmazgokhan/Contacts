@@ -2,7 +2,7 @@ package com.yilmazgokhan.contact.Presenter;
 
 import com.yilmazgokhan.contact.HelperClass.ApiToken;
 import com.yilmazgokhan.contact.HelperClass.JsonParseHelper;
-import com.yilmazgokhan.contact.HelperClass.UserLogin;
+import com.yilmazgokhan.contact.HelperClass.User;
 import com.yilmazgokhan.contact.Interface.ILogin;
 import com.yilmazgokhan.contact.RetrofitApi.ApiClient;
 import com.yilmazgokhan.contact.RetrofitApi.IRetrofitApi;
@@ -33,8 +33,8 @@ public class LoginPresenter implements ILogin.Presenter{
         view.showLoading();
         view.clearErrors();
         IRetrofitApi retrofitApi = ApiClient.getApiClient().create(IRetrofitApi.class);
-        UserLogin userLogin = new UserLogin(email, password);
-        Call<ApiToken> call = retrofitApi.Login(userLogin);
+        User user = new User(email, password);
+        Call<ApiToken> call = retrofitApi.Login(user);
         call.enqueue(new Callback<ApiToken>() {
             @Override
             public void onResponse(Call<ApiToken> call, Response<ApiToken> response) {

@@ -2,7 +2,7 @@ package com.yilmazgokhan.contact.Interface;
 
 import android.content.Context;
 
-import com.yilmazgokhan.contact.HelperClass.UserEdit;
+import com.yilmazgokhan.contact.HelperClass.Contact;
 
 public interface IEditContact {
 
@@ -14,9 +14,9 @@ public interface IEditContact {
 
         String getUserID();
 
-        void setTexts(UserEdit userEdit);
+        void setTexts(Contact user);
 
-        UserEdit getChangedUser();
+        Contact getChangedUser();
 
         void deleteSuccessful();
 

@@ -4,10 +4,7 @@ import com.yilmazgokhan.contact.HelperClass.ApiAnswer;
 import com.yilmazgokhan.contact.HelperClass.ApiToken;
 import com.yilmazgokhan.contact.HelperClass.Contact;
 import com.yilmazgokhan.contact.HelperClass.ContactListInfo;
-import com.yilmazgokhan.contact.HelperClass.UserCreate;
-import com.yilmazgokhan.contact.HelperClass.UserEdit;
-import com.yilmazgokhan.contact.HelperClass.UserLogin;
-import com.yilmazgokhan.contact.HelperClass.UserRegister;
+import com.yilmazgokhan.contact.HelperClass.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -23,11 +20,11 @@ public interface IRetrofitApi {
 
     /*for Log in on LoginActivity*/
     @POST("auth")
-    Call<ApiToken> Login(@Body UserLogin userLogin);
+    Call<ApiToken> Login(@Body User user);
 
     /*for register on RegisterActivity*/
     @POST("users")
-    Call<ApiToken> Register(@Body UserRegister userRegister);
+    Call<ApiToken> Register(@Body User user);
 
     /*for list contacts on MainActivity*/
     @GET("contacts")
@@ -37,7 +34,7 @@ public interface IRetrofitApi {
 
     /*for a contact on EditContactPresenter*/
     @GET("contacts/{id}")
-    Call<UserEdit> GetTheUser(
+    Call<Contact> GetTheUser(
             @Path("id") String userId,
             @Header("x-auth-token") String authToken);
 
@@ -45,7 +42,7 @@ public interface IRetrofitApi {
     @POST("contacts")
     Call<Contact> CreateNewContact(
             @Header("x-auth-token") String authToken,
-            @Body UserCreate userCreate);
+            @Body Contact contact);
 
     @DELETE("contacts/{id}")
     Call<ApiAnswer> DeleteContact(
@@ -56,6 +53,6 @@ public interface IRetrofitApi {
     Call<ApiAnswer> UpdateContact(
             @Path("id") String userId,
             @Header("x-auth-token") String authToken,
-            @Body UserEdit userEdit);
+            @Body Contact user);
 
 }

@@ -2,7 +2,7 @@ package com.yilmazgokhan.contact.Presenter;
 
 import com.yilmazgokhan.contact.HelperClass.ApiToken;
 import com.yilmazgokhan.contact.HelperClass.JsonParseHelper;
-import com.yilmazgokhan.contact.HelperClass.UserRegister;
+import com.yilmazgokhan.contact.HelperClass.User;
 import com.yilmazgokhan.contact.Interface.IRegister;
 import com.yilmazgokhan.contact.RetrofitApi.ApiClient;
 import com.yilmazgokhan.contact.RetrofitApi.IRetrofitApi;
@@ -32,8 +32,8 @@ public class RegisterPresenter implements IRegister.Presenter {
         view.showLoading();
         view.clearErrors();
         IRetrofitApi retrofitApi = ApiClient.getApiClient().create(IRetrofitApi.class);
-        UserRegister userRegister = new UserRegister(email, name, password);
-        Call<ApiToken> call = retrofitApi.Register(userRegister);
+        User user = new User(email, name, password);
+        Call<ApiToken> call = retrofitApi.Register(user);
         call.enqueue(new Callback<ApiToken>() {
             @Override
             public void onResponse(Call<ApiToken> call, Response<ApiToken> response) {

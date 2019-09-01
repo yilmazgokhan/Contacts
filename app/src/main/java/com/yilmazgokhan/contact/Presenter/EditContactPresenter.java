@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.yilmazgokhan.contact.HelperClass.ApiAnswer;
-import com.yilmazgokhan.contact.HelperClass.UserEdit;
+import com.yilmazgokhan.contact.HelperClass.Contact;
 import com.yilmazgokhan.contact.Interface.IEditContact;
 import com.yilmazgokhan.contact.RetrofitApi.ApiClient;
 import com.yilmazgokhan.contact.RetrofitApi.IRetrofitApi;
@@ -41,15 +41,15 @@ public class EditContactPresenter implements IEditContact.Presenter {
         view.showLoading();
         String userId = view.getUserID();
         IRetrofitApi retrofitApi = ApiClient.getApiClient().create(IRetrofitApi.class);
-        Call<UserEdit> call = retrofitApi.GetTheUser(userId, userToken);
-        call.enqueue(new Callback<UserEdit>() {
+        Call<Contact> call = retrofitApi.GetTheUser(userId, userToken);
+        call.enqueue(new Callback<Contact>() {
             @Override
-            public void onResponse(Call<UserEdit> call, Response<UserEdit> response) {
+            public void onResponse(Call<Contact> call, Response<Contact> response) {
 
                 view.hideLoading();
                 if (response.isSuccessful() && response.body() != null) {
-                    UserEdit userEdit = response.body();
-                    view.setTexts(userEdit);
+                    Contact user = response.body();
+                    view.setTexts(user);
 
                 } else if (response.code() == 401) {
 
@@ -59,7 +59,7 @@ public class EditContactPresenter implements IEditContact.Presenter {
             }
 
             @Override
-            public void onFailure(Call<UserEdit> call, Throwable t) {
+            public void onFailure(Call<Contact> call, Throwable t) {
 
                 view.hideLoading();
             }
@@ -96,7 +96,7 @@ public class EditContactPresenter implements IEditContact.Presenter {
     @Override
     public void doneButtonClick() {
 
-        UserEdit user = view.getChangedUser();
+        Contact user = view.getChangedUser();
         IRetrofitApi retrofitApi = ApiClient.getApiClient().create(IRetrofitApi.class);
         Call<ApiAnswer> call = retrofitApi.UpdateContact(user.getId(), userToken, user);
         call.enqueue(new Callback<ApiAnswer>() {

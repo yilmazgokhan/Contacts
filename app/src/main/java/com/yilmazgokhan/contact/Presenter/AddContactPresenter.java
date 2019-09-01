@@ -5,7 +5,6 @@ import android.preference.PreferenceManager;
 
 import com.yilmazgokhan.contact.HelperClass.Contact;
 import com.yilmazgokhan.contact.HelperClass.JsonParseHelper;
-import com.yilmazgokhan.contact.HelperClass.UserCreate;
 import com.yilmazgokhan.contact.Interface.IAddContact;
 import com.yilmazgokhan.contact.RetrofitApi.ApiClient;
 import com.yilmazgokhan.contact.RetrofitApi.IRetrofitApi;
@@ -43,7 +42,7 @@ public class AddContactPresenter implements IAddContact.Presenter{
 
         view.clearErrors();
         IRetrofitApi retrofitApi = ApiClient.getApiClient().create(IRetrofitApi.class);
-        UserCreate user = new UserCreate(name, phone, email, type);
+        Contact user = new Contact(type, name, email, phone);
         Call<Contact> call = retrofitApi.CreateNewContact(userToken, user);
         call.enqueue(new Callback<Contact>() {
             @Override
